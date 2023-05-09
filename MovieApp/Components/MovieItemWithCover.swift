@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-class MovieItemWithCover: UITableViewCell {
+class MovieItemWithCover: UITableViewCell, Coordinating {
+    var coordinator: Coordinator?
     static let indentifier = "MovieItemWithCover"
     
     var title: UILabel!

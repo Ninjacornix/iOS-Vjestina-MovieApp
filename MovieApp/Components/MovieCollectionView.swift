@@ -10,32 +10,14 @@ import UIKit
 import PureLayout
 import MovieAppData
 
-class MovieCollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCoverWithStar.indentifier, for: indexPath) as? MovieCoverWithStar else { return UICollectionViewCell()}
-        cell.configure(cover: movies[indexPath.row].imageUrl)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 122, height: 179)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
-    }
-    
+class MovieCollectionView: UIViewController {
+    let coord: Coordinator
     let movies: [MovieModel]
-
     var collectionView: UICollectionView!
     
-    init(data: [MovieModel]) {
+    init(data: [MovieModel], coord: Coordinator) {
         self.movies = data
+        self.coord = coord
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,4 +43,31 @@ class MovieCollectionView: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.frame.size.width = UIScreen.main.bounds.width
         collectionView.frame.size.height = 180
     }
+}
+
+extension MovieCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCoverWithStar.indentifier, for: indexPath) as? MovieCoverWithStar else { return UICollectionViewCell()}
+        cell.configure(cover: movies[indexPath.row].imageUrl)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 122, height: 179)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        coord.eventOccured(with: .clickedOnMovie)
+    }
+    
 }

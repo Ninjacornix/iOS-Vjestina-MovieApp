@@ -31,6 +31,8 @@ class MovieDetailsWithCoverView: UIView {
         super.init(frame: CGRect())
         movieDetails = MovieUseCase().getDetails(id: 111161)
         buildView()
+        setConstraints()
+        setAnimations()
     }
     
     func buildView(){
@@ -95,7 +97,9 @@ class MovieDetailsWithCoverView: UIView {
         addSubview(rating)
         addSubview(length)
         addSubview(genere)
-        
+    }
+    
+    func setConstraints(){
         coverImage.autoPinEdge(toSuperviewEdge: .top)
         coverImage.autoPinEdge(toSuperviewEdge: .leading)
         coverImage.autoPinEdge(toSuperviewEdge: .trailing)
@@ -126,7 +130,26 @@ class MovieDetailsWithCoverView: UIView {
         
         length.autoPinEdge(.leading, to: .trailing, of: genere, withOffset: 15)
         length.autoPinEdge(.top, to: .bottom, of: date, withOffset: 10)
-
+    }
+    
+    func setAnimations(){
+        movieTitle.frame = CGRect(x: -200, y: 0, width: bounds.width, height: bounds.height)
+        year.frame = CGRect(x: -200, y: 0, width: bounds.width, height: bounds.height)
+        userScore.frame = CGRect(x: -200, y: 0, width: bounds.width, height: bounds.height)
+        genere.frame = CGRect(x: -200, y: 0, width: bounds.width, height: bounds.height)
+        length.frame = CGRect(x: -200, y: 0, width: bounds.width, height: bounds.height)
+        rating.frame = CGRect(x: -200, y: 0, width: bounds.width, height: bounds.height)
+        date.frame = CGRect(x: -200, y: 0, width: bounds.width, height: bounds.height)
+        
+        UIView.animate(withDuration: 0.2){
+            self.movieTitle.frame.origin.x += 200
+            self.year.frame.origin.x += 200
+            self.userScore.frame.origin.x += 200
+            self.genere.frame.origin.x += 200
+            self.length.frame.origin.x += 200
+            self.rating.frame.origin.x += 200
+            self.date.frame.origin.x += 200
+        }
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()){

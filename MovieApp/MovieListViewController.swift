@@ -10,7 +10,8 @@ import UIKit
 import PureLayout
 import MovieAppData
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
     
     var movies: [MovieModel]!
     
@@ -64,5 +65,9 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 154
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.eventOccured(with: .clickedOnMovie)
     }
 }

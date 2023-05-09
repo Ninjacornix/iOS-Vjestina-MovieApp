@@ -10,7 +10,8 @@ import UIKit
 import PureLayout
 import MovieAppData
 
-class MovieCategoryListViewController: UIViewController {
+class MovieCategoryListViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
     
     var popular: MovieListWithName!
     var free: MovieListWithName!
@@ -21,7 +22,7 @@ class MovieCategoryListViewController: UIViewController {
     var trendingData: [MovieModel]!
     
     var stackView: UIStackView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         obtainData()
@@ -29,7 +30,8 @@ class MovieCategoryListViewController: UIViewController {
         setContraints()
     }
     
-    init(){
+    init(coord: Coordinator){
+        self.coordinator = coord
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,10 +41,10 @@ class MovieCategoryListViewController: UIViewController {
     
     func buildView(){
         view.backgroundColor = .white
-        
-        popular = MovieListWithName(data: popularData, name: "What's popular")
-        free = MovieListWithName(data: freeData, name: "Free to Watch")
-        trending = MovieListWithName(data: trendingData, name: "Trending")
+        title = "Movie List"
+        popular = MovieListWithName(data: popularData, name: "What's popular", coord: coordinator!)
+        free = MovieListWithName(data: freeData, name: "Free to Watch", coord: coordinator!)
+        trending = MovieListWithName(data: trendingData, name: "Trending", coord: coordinator!)
         
         stackView = UIStackView(arrangedSubviews: [popular, free, trending])
         stackView.backgroundColor = .white

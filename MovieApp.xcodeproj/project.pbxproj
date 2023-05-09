@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E308A0CA29FD13B400982737 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308A0C929FD13B400982737 /* FavoritesViewController.swift */; };
+		E308A0CC29FD159F00982737 /* MovieListAndFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308A0CB29FD159F00982737 /* MovieListAndFavoritesViewController.swift */; };
+		E308A0CE29FD4B7800982737 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308A0CD29FD4B7800982737 /* Coordinator.swift */; };
+		E308A0D029FD4FE700982737 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308A0CF29FD4FE700982737 /* Router.swift */; };
 		E359B13C29CF71530030AADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E359B13B29CF71530030AADE /* AppDelegate.swift */; };
 		E359B13E29CF71530030AADE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E359B13D29CF71530030AADE /* SceneDelegate.swift */; };
 		E359B14529CF71560030AADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E359B14429CF71560030AADE /* Assets.xcassets */; };
@@ -49,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E308A0C929FD13B400982737 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E308A0CB29FD159F00982737 /* MovieListAndFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListAndFavoritesViewController.swift; sourceTree = "<group>"; };
+		E308A0CD29FD4B7800982737 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E308A0CF29FD4FE700982737 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E359B13829CF71530030AADE /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E359B13B29CF71530030AADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E359B13D29CF71530030AADE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +144,10 @@
 				E39CEB8129E20F6200E38B28 /* MovieListViewController.swift */,
 				E3864F7F29D3167E004D7755 /* MovieDetailsViewController.swift */,
 				E39CEB8B29E350C800E38B28 /* MovieCategoryListViewController.swift */,
+				E308A0C929FD13B400982737 /* FavoritesViewController.swift */,
+				E308A0CB29FD159F00982737 /* MovieListAndFavoritesViewController.swift */,
+				E308A0CD29FD4B7800982737 /* Coordinator.swift */,
+				E308A0CF29FD4FE700982737 /* Router.swift */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -339,12 +351,16 @@
 				E39CEB8229E20F6200E38B28 /* MovieListViewController.swift in Sources */,
 				E359B17229D08AAF0030AADE /* LogInViewController.swift in Sources */,
 				E39CEB9029E35D0900E38B28 /* MovieCoverWithStar.swift in Sources */,
+				E308A0CC29FD159F00982737 /* MovieListAndFavoritesViewController.swift in Sources */,
 				E39CEB8529E2157F00E38B28 /* MovieItemWithCover.swift in Sources */,
 				E3864F8A29D4D17A004D7755 /* MovieDetailsOverview.swift in Sources */,
+				E308A0CE29FD4B7800982737 /* Coordinator.swift in Sources */,
 				E3864F8229D31743004D7755 /* MovieDetailsWithCoverView.swift in Sources */,
 				E3D9A5DF29E48D8D006DA46F /* MovieCollectionView.swift in Sources */,
 				E39CEB8E29E3514200E38B28 /* MovieListWithName.swift in Sources */,
+				E308A0CA29FD13B400982737 /* FavoritesViewController.swift in Sources */,
 				E359B13C29CF71530030AADE /* AppDelegate.swift in Sources */,
+				E308A0D029FD4FE700982737 /* Router.swift in Sources */,
 				E3864F8829D33128004D7755 /* SignInLabel.swift in Sources */,
 				E3864F8629D3221C004D7755 /* SignInFields.swift in Sources */,
 				E359B13E29CF71530030AADE /* SceneDelegate.swift in Sources */,

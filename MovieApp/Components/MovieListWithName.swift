@@ -11,6 +11,7 @@ import PureLayout
 import MovieAppData
 
 class MovieListWithName: UIView {
+    var coord: Coordinator!
     
     var categoryName: UILabel!
     var list: MovieCollectionView!
@@ -23,15 +24,16 @@ class MovieListWithName: UIView {
         fatalError()
     }
     
-    init(data: [MovieModel], name: String = "") {
+    init(data: [MovieModel], name: String = "", coord: Coordinator) {
         super.init(frame: CGRect())
+        self.coord = coord
         buildView(data: data, name: name)
         setContraints()
     }
     
     func buildView(data: [MovieModel], name: String = ""){
         categoryName = UILabel()
-        list = MovieCollectionView(data: data)
+        list = MovieCollectionView(data: data, coord: coord)
         
         categoryName.text = name
         categoryName.font = .boldSystemFont(ofSize: 20)
